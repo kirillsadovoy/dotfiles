@@ -1,0 +1,13 @@
+[user]
+	name = Kirill Sadovoy
+	email = k.sadovoy@gmail.com
+[core]
+	autocrlf = input
+	safecrlf = true
+	editor = vim
+[filter "lfs"]
+	clean = git-lfs clean %f
+	smudge = git-lfs smudge %f
+	required = true
+[diff]
+	tool = vimdiff
