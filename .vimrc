@@ -38,6 +38,7 @@ Plugin 'wavded/vim-stylus'
 Plugin 'JulesWang/css.vim'
 Plugin 'hail2u/vim-css3-syntax.git'
 Plugin 'pangloss/vim-javascript'
+Plugin 'justhamade/django-vim'
 
 " Colorscheme
 Plugin 'morhetz/gruvbox'
