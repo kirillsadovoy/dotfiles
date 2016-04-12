@@ -17,6 +17,8 @@ Plugin 'scrooloose/nerdtree'
 Plugin 'scrooloose/syntastic'
 Plugin 'bling/vim-airline'
 Plugin 'sjl/gundo.vim'
+Plugin 'matze/vim-move'
+let g:move_key_modifier = 'C'
 
 " Autocomplite
 Plugin 'ervandew/supertab'
