@@ -20,7 +20,9 @@ Plugin 'sjl/gundo.vim'
 
 " Autocomplite
 Plugin 'ervandew/supertab'
+Plugin 'Valloric/YouCompleteMe'
 Plugin 'mattn/emmet-vim'
+Plugin 'ternjs/tern_for_vim'
 
 " Git
 Plugin 'airblade/vim-gitgutter'
