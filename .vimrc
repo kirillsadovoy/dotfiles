@@ -40,9 +40,11 @@ Plugin 'wavded/vim-stylus'
 Plugin 'JulesWang/css.vim'
 Plugin 'hail2u/vim-css3-syntax.git'
 Plugin 'pangloss/vim-javascript'
+" Plugin 'justhamade/django-vim'
 
 " Colorscheme
 Plugin 'morhetz/gruvbox'
+Plugin 'jdkanani/vim-material-theme'
 Plugin 'altercation/vim-colors-solarized.git'
 Plugin 'raphamorim/lucario'
 Plugin 'nanotech/jellybeans.vim'
@@ -89,7 +91,7 @@ set autoindent
 set smartindent
 set pastetoggle=<F2>
 set list
-set listchars=tab:▸\ ,eol:¬
+set listchars=tab:▸\ ,trail:·,extends:❯,precedes:❮,nbsp:×
 
 " Folding
 set foldenable    " enable folding
@@ -114,6 +116,9 @@ set noswapfile
 " Colors
 set t_Co=256
 colorscheme jellybeans
+
+" Automatically removing all trailing whitespace
+autocmd BufWritePre * :%s/\s\+$//e
 
 " Mapings
 let mapleader=","
