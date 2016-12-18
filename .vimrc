@@ -109,6 +109,7 @@ let g:ctrlp_user_command = 'ag %s -l --nocolor --hidden -g ""'
 
 set wrap
 set linebreak
+set nrformats=
 
 " Turn backup off, since most stuff is in SVN, git et.c anyway...
 set nobackup
