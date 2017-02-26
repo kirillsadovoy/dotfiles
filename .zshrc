@@ -1,7 +1,6 @@
 # Path to your oh-my-zsh installation.
 export ZSH=$HOME/.oh-my-zsh
 
-export DEFAULT_USER="krll"
 # Set name of the theme to load.
 # Look in ~/.oh-my-zsh/themes/
 # Optionally, if you set this to "random", it'll load a random theme each
@@ -83,9 +82,11 @@ export PATH="/usr/local/bin:/usr/bin:/bin:/usr/sbin:/sbin:/usr/local/git/bin"
 #
 # Example aliases
 # alias ohmyzsh="mate ~/.oh-my-zsh"
-alias zshconfig="st ~/.zshrc"
-hash -d prj="/Users/krll/Projects/"
-hash -d sbx="/Users/krll/Sandbox/"
+alias vim="nvim"
+alias p="cd ~/Projects/"
+alias sbx="cd ~/Sandbox/"
 
 # Bindings
 bindkey -v
+
+[ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
