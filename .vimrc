@@ -1,74 +1,98 @@
+language en_US
 set nocompatible
-filetype off
 
-" Vundle
-set rtp+=~/.vim/bundle/Vundle.vim
-call vundle#begin()
+call plug#begin('~/.vim/plugged')
 
 " Extend vim
-Plugin 'gmarik/Vundle.vim'
-Plugin 'tpope/vim-sensible'     "better defaults
-Plugin 'tpope/vim-surround'
-Plugin 'tpope/vim-repeat'
-Plugin 'tpope/vim-commentary'
-Plugin 'rking/ag.vim'
-Plugin 'kien/ctrlp.vim'
-Plugin 'scrooloose/nerdtree'
-Plugin 'scrooloose/syntastic'
-Plugin 'bling/vim-airline'
-Plugin 'sjl/gundo.vim'
-Plugin 'matze/vim-move'
-let g:move_key_modifier = 'C'
+Plug 'tpope/vim-sensible'     "better defaults
+Plug 'tpope/vim-surround'
+Plug 'tpope/vim-repeat'
+Plug 'tpope/vim-commentary'
+Plug 'rking/ag.vim'
+Plug 'junegunn/fzf', { 'dir': '~/.fzf', 'do': './install --all' }
+Plug 'junegunn/fzf.vim'
+Plug 'jiangmiao/auto-pairs'
+Plug 'dyng/ctrlsf.vim'
+Plug 'scrooloose/nerdtree'
+Plug 'neomake/neomake'
+Plug 'vim-airline/vim-airline'
+Plug 'vim-airline/vim-airline-themes'
+Plug 'mbbill/undotree'
+Plug 'editorconfig/editorconfig-vim'
+Plug 'easymotion/vim-easymotion'
+Plug 'matze/vim-move'
+Plug 'christoomey/vim-tmux-navigator'
 
 " Autocomplite
-Plugin 'ervandew/supertab'
-Plugin 'Valloric/YouCompleteMe'
-Plugin 'mattn/emmet-vim'
-Plugin 'ternjs/tern_for_vim'
+Plug 'Shougo/deoplete.nvim', { 'do': ':UpdateRemotePlugins' }
+Plug 'carlitux/deoplete-ternjs', { 'for': ['javascript', 'javascript.jsx'] }
 
 " Git
-Plugin 'airblade/vim-gitgutter'
-Plugin 'tpope/vim-fugitive'
+Plug 'tpope/vim-fugitive'
+Plug 'airblade/vim-gitgutter'
+Plug 'Xuyuanp/nerdtree-git-plugin'
+Plug 'jreybert/vimagit'
 
 " Snippets
-Plugin 'MarcWeber/vim-addon-mw-utils'
-Plugin 'tomtom/tlib_vim'
-Plugin 'garbas/vim-snipmate'
+Plug 'ervandew/supertab'
+Plug 'honza/vim-snippets'
 
-" Syntax support
-Plugin 'othree/html5.vim'
-Plugin 'digitaltoad/vim-jade.git'
-Plugin 'wavded/vim-stylus'
-Plugin 'JulesWang/css.vim'
-Plugin 'hail2u/vim-css3-syntax.git'
-Plugin 'pangloss/vim-javascript'
-" Plugin 'justhamade/django-vim'
+" Plug 'MarcWeber/vim-addon-mw-utils'
+" Plug 'tomtom/tlib_vim'
+" Plug 'garbas/vim-snipmate'
+
+" css/html
+Plug 'othree/html5.vim', { 'for': ['html', 'javascript'] }
+Plug 'gregsexton/MatchTag', { 'for': ['html', 'javascript'] }
+Plug 'mattn/emmet-vim', { 'for': ['html', 'javascript'] }
+Plug 'wavded/vim-stylus', { 'for': 'stylus' }
+Plug 'JulesWang/css.vim'
+Plug 'hail2u/vim-css3-syntax', { 'for': ['css', 'stylus']  }
+
+" javascript
+Plug 'pangloss/vim-javascript', { 'for': 'javascript' }
+Plug 'othree/javascript-libraries-syntax.vim'
+Plug 'elzr/vim-json'
+Plug 'mxw/vim-jsx'
 
 " Colorscheme
-Plugin 'morhetz/gruvbox'
-Plugin 'jdkanani/vim-material-theme'
-Plugin 'altercation/vim-colors-solarized.git'
-Plugin 'raphamorim/lucario'
-Plugin 'nanotech/jellybeans.vim'
+Plug 'arcticicestudio/nord-vim'
+Plug 'tyrannicaltoucan/vim-deep-space'
 
-call vundle#end()
+" Russian keymap support
+set langmap=ФИСВУАПРШОЛДЬТЩЗЙКЫЕГМЦЧНЯЖ;ABCDEFGHIJKLMNOPQRSTUVWXYZ:,фисвуапршолдьтщзйкыегмцчня;abcdefghijklmnopqrstuvwxyz
+
+call plug#end()
 
 syntax enable    " enable syntax processing
-filetype on
-filetype plugin on
 
-" Syntastic settings
-let g:syntastic_javascript_checkers = ['eslint']
-let g:syntastic_always_populate_loc_list = 1
-let g:syntastic_auto_loc_list = 1
-let g:syntastic_check_on_open = 1
-let g:syntastic_check_on_wq = 0
+let g:airline_powerline_fonts = 1
+
+" Use deoplete.
+let g:deoplete#enable_at_startup = 1
+
+" FZF
+set rtp+=/usr/local/opt/fzf
+nnoremap <C-p> :Files <CR>
+nnoremap <silent> <C-b> :Buffers<CR>
+
+let g:fzf_action = {
+  \ 'ctrl-t': 'tab split',
+  \ 'ctrl-x': 'split',
+  \ 'ctrl-v': 'vsplit' }
+
+" Neomake
+autocmd! BufWritePost * Neomake
+let g:neomake_javascript_enabled_makers = ['eslint']
+
+set autoread
 
 " UI Config
 set nocompatible
 set hidden
 set number   " show line numbers
 set cursorline   " highlight current line
+set scrolloff=10
 set showmode
 set showcmd   " show command in bottom bar
 set wildmenu    " visual autocomplete for command menu
@@ -101,12 +125,6 @@ set foldmethod=syntax
 set foldlevelstart=10    " open most folds by default
 set foldnestmax=10    " 10 nested fold max
 
-" CtrlP settings
-let g:ctrlp_match_window = 'bottom,order:ttb'
-let g:ctrlp_switch_buffer = 0
-let g:ctrlp_working_path_mode = 0
-let g:ctrlp_user_command = 'ag %s -l --nocolor --hidden -g ""'
-
 set wrap
 set linebreak
 set nrformats=
@@ -117,8 +135,8 @@ set nowritebackup
 set noswapfile
 
 " Colors
-set t_Co=256
-colorscheme jellybeans
+set termguicolors
+colorscheme nord
 
 " Automatically removing all trailing whitespace
 autocmd BufWritePre * :%s/\s\+$//e
@@ -126,12 +144,21 @@ autocmd BufWritePre * :%s/\s\+$//e
 " Mapings
 let mapleader=","
 
+let g:EasyMotion_do_mapping = 0
+nmap <leader>f <Plug>(easymotion-overwin-f)
+
 " Save
 map <leader>w <esc>:w<CR>
 
 " move vertically by visual line
 nnoremap j gj
 nnoremap k gk
+
+" Keep the cursor in place while joining lines
+nnoremap J mzJ`z
+
+" Split line S is covered by cc.
+nnoremap S mzi<CR><ESC>`z
 
 " $/^ doesn't do anything
 nnoremap $ <NOP>
@@ -161,6 +188,10 @@ map <C-l> <C-w><Right>
 map <C-h> <C-w><Left>
 " map <C-c> <C-w>c
 
+" NERDTree
+let NERDTreeShowHidden=1
+let g:NERDTreeDirArrowExpandable = '+'
+let g:NERDTreeDirArrowCollapsible = '-'
 nmap <silent> <leader><leader> :NERDTreeToggle<CR>
 
 " Upper/lower word
@@ -170,6 +201,10 @@ nmap <leader>lc mQviwu`Q
 " Insert blank lines without going into Insert mode
 nmap t o<esc>k
 nmap T O<esc>j
+
+" Make Y/yy consistent with D/dd and C/cc
+nnoremap yy Y
+nnoremap Y y$
 
 " Disable <Arrow keys>
 inoremap <Up> <NOP>
@@ -181,13 +216,20 @@ noremap <Down> <NOP>
 noremap <Left> <NOP>
 noremap <Right> <NOP>
 
+" Disable ex mode
+nnoremap Q <nop>
+
+" Disable recording macros
+map q <Nop>
+
 " edit vimrc/zshrc and load vimrc bindings
 nnoremap <leader>o :vsp $MYVIMRC<CR>
 nnoremap <leader>zsh :vsp ~/.zshrc<CR>
 nnoremap <leader>so :so $MYVIMRC<CR>
 
-" toggle gundo
-nnoremap <leader>u :GundoToggle<CR>
+" toggle undo-tree
+nnoremap <leader>u :UndotreeToggle<CR>
+nnoremap <leader>uf :UndotreeFocus<CR>
 
 " open ag.vim
 nnoremap <leader>a :Ag
