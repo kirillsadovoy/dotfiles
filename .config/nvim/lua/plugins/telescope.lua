@@ -7,6 +7,10 @@ return {
   },
   config = function()
     require('telescope').setup {
+      extensions = {
+        wrap_results = true,
+        fzf = {},
+      },
       pickers = {
         find_files = {
           theme = 'ivy',
