@@ -32,7 +32,7 @@ vim.opt.listchars = { tab = '» ', space = '·', trail = '·', nbsp = '␣' }
 vim.opt.updatetime = 250
 
 -- Decrease mapped sequence wait time
-vim.opt.timeoutlen = 300
+vim.opt.timeoutlen = 500
 
 -- Preview substitutions live, as you type!
 vim.opt.inccommand = 'split'
