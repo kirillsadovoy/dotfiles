@@ -9,6 +9,9 @@ vim.opt.number = true
 vim.opt.relativenumber = true
 vim.opt.cursorline = true
 
+-- Helps to avoid jumping when lsp errors appears/disappears
+vim.opt.signcolumn = 'yes'
+
 -- Case-insensitive searching UNLESS \C or one or more capital letters in the search term
 vim.opt.ignorecase = true
 vim.opt.smartcase = true
