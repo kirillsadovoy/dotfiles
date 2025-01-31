@@ -18,7 +18,8 @@ return {
         follow_current_file = {
           enabled = true,
         },
-        hijack_netrw_behavior = 'open_current',
+        -- Oil.nvim will hijack netrw
+        hijack_netrw_behavior = 'disabled',
         find_args = {
           fd = {
             '--exclude',
