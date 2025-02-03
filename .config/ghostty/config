@@ -8,4 +8,4 @@ macos-titlebar-style = transparent
 font-thicken = true
 font-thicken-strength = 0
 adjust-underline-position = 6
-
+adjust-strikethrough-position = -4
