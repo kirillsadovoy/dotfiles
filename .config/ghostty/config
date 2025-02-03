@@ -5,3 +5,7 @@ adjust-cell-height = 20%
 
 mouse-hide-while-typing = true
 macos-titlebar-style = transparent
+font-thicken = true
+font-thicken-strength = 0
+adjust-underline-position = 6
+
