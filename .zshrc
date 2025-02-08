@@ -1,6 +1,8 @@
 # Created by Zap installer
 [ -f "${XDG_DATA_HOME:-$HOME/.local/share}/zap/zap.zsh" ] && source "${XDG_DATA_HOME:-$HOME/.local/share}/zap/zap.zsh"
 
+export PURE_GIT_PULL=0
+
 # Plugins
 plug "zsh-users/zsh-autosuggestions"
 plug "zap-zsh/supercharge"
