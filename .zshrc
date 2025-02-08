@@ -9,6 +9,7 @@ plug "zap-zsh/supercharge"
 plug "mafredri/zsh-async"
 plug "sindresorhus/pure"
 plug "zsh-users/zsh-syntax-highlighting"
+plug "zsh-users/zsh-syntax-highlighting"
 
 # Load and initialise completion system
 autoload -Uz compinit
@@ -18,3 +19,6 @@ compinit
 bindkey -v
 # zsh for some reason don't propperly handle extended charcodes from ghostty
 bindkey '^[[91;5u' vi-cmd-mode # Ctrl-[
+
+export NVM_DIR=~/.nvm
+ [ -s "$NVM_DIR/nvm.sh" ] && . "$NVM_DIR/nvm.sh"
