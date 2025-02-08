@@ -42,3 +42,5 @@ vim.opt.inccommand = 'split'
 
 -- Limit completion items
 vim.opt.pumheight = 12
+
+vim.opt.exrc = true
