@@ -1,11 +1,12 @@
 theme = tokyonight_moon
+
 font-family = "FiraCode Nerd Font Mono Ret"
 font-size = 13
 adjust-cell-height = 20%
-
-mouse-hide-while-typing = true
-macos-titlebar-style = transparent
 font-thicken = true
 font-thicken-strength = 0
 adjust-underline-position = 6
 adjust-strikethrough-position = -4
+
+mouse-hide-while-typing = true
+macos-titlebar-style = transparent
