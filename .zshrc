@@ -9,7 +9,10 @@ plug "zap-zsh/supercharge"
 plug "mafredri/zsh-async"
 plug "sindresorhus/pure"
 plug "zsh-users/zsh-syntax-highlighting"
-plug "zsh-users/zsh-syntax-highlighting"
+
+# Neovim as default editor
+export EDITOR="nvim"
+export VISUAL="nvim"
 
 # Load and initialise completion system
 autoload -Uz compinit

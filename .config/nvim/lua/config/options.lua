@@ -19,15 +19,14 @@ vim.opt.smartcase = true
 -- Don't show the mode, since it's already in the status line
 vim.opt.showmode = false
 
--- Minimal number of screen lines to keep above and below the cursor.
+-- Minimal number of screen lines to keep above/below and left/right to the cursor.
 vim.opt.scrolloff = 10
+vim.opt.sidescrolloff = 10
 
 -- Enable mouse mode, can be useful for resizing splits for example!
 vim.opt.mouse = 'a'
 
 -- Sets how neovim will display certain whitespace characters in the editor.
---  See `:help 'list'`
---  and `:help 'listchars'`
 vim.opt.list = true
 vim.opt.listchars = { tab = '» ', space = '·', trail = '·', nbsp = '␣' }
 
@@ -43,4 +42,9 @@ vim.opt.inccommand = 'split'
 -- Limit completion items
 vim.opt.pumheight = 12
 
+-- Allow to source local files eg per project configs
 vim.opt.exrc = true
+
+-- Open vertical splits to the right, and horizontal below current window
+vim.opt.splitbelow = true
+vim.opt.splitright = true
