@@ -45,8 +45,8 @@ vim.keymap.set('n', ']b', '<cmd>try | bnext | catch | bfirst | catch | endtry<CR
 vim.keymap.set('n', '[b', '<cmd>try | bprevious | catch | blast | catch | endtry<CR>', opts)
 
 -- Create/delete buffer
-vim.keymap.set('n', '<leader>x', ':Bdelete!<CR>', opts)
+vim.keymap.set('n', '<leader>x', '<cmd>bdelete!<CR>', opts)
 vim.keymap.set('n', '<leader>c', '<cmd>enew<CR>', opts)
 
 -- Close current split
-vim.keymap.set('n', '<C-w>x', ':close<CR>', opts)
+vim.keymap.set('n', '<C-w>x', '<cmd>close<CR>', opts)
