@@ -44,8 +44,7 @@ vim.keymap.set('n', '[q', '<cmd>try | cprevious | catch | clast | catch | endtry
 vim.keymap.set('n', ']b', '<cmd>try | bnext | catch | bfirst | catch | endtry<CR>', opts)
 vim.keymap.set('n', '[b', '<cmd>try | bprevious | catch | blast | catch | endtry<CR>', opts)
 
--- Create/delete buffer
-vim.keymap.set('n', '<leader>x', '<cmd>enew | bd #<CR>', opts)
+-- Create buffer (delete keymaps in bufdel plugin)
 vim.keymap.set('n', '<leader>nb', '<cmd>enew<CR>', opts)
 
 -- Close current split

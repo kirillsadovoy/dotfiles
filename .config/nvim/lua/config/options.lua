@@ -48,3 +48,6 @@ vim.opt.exrc = true
 -- Open vertical splits to the right, and horizontal below current window
 vim.opt.splitbelow = true
 vim.opt.splitright = true
+
+-- Disable inline diagnostic messages in favor of autoshown float diagnostics (configured in lsp)
+vim.diagnostic.config { virtual_text = false }

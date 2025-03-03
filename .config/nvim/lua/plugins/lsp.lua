@@ -53,7 +53,7 @@ return {
 
           -- Jump to the implementation of the word under your cursor.
           --  Useful when your language has ways of declaring types without an actual implementation.
-          map('<leader>gI', require('telescope.builtin').lsp_implementations, '[G]oto [I]mplementation')
+          map('gi', require('telescope.builtin').lsp_implementations, '[G]oto [I]mplementation')
 
           -- Jump to the type of the word under your cursor.
           --  Useful when you're not sure what type a variable is and you want to see
@@ -100,6 +100,24 @@ return {
               callback = vim.lsp.buf.clear_references,
             })
 
+            vim.api.nvim_create_autocmd('CursorHold', {
+              buffer = event.buf,
+              callback = function()
+                local opts = {
+                  focusable = false,
+                  style = 'minimal',
+                  close_events = { 'BufLeave', 'CursorMoved', 'InsertEnter', 'FocusLost' },
+                  border = 'rounded',
+                  source = 'if_many',
+                  header = '',
+                  suffix = '',
+                  prefix = '',
+                  scope = 'cursor',
+                }
+                vim.diagnostic.open_float(nil, opts)
+              end,
+            })
+
             vim.api.nvim_create_autocmd('LspDetach', {
               group = vim.api.nvim_create_augroup('kickstart-lsp-detach', { clear = true }),
               callback = function(event2)
@@ -141,7 +159,12 @@ return {
 
       local servers = {
         ts_ls = {},
-        cssmodules_ls = {},
+        gopls = {},
+        cssmodules_ls = {
+          capabilities = {
+            defenitionProvider = false,
+          },
+        },
         stylelint_lsp = {
           filetypes = { 'css' },
         },
@@ -216,7 +239,7 @@ return {
     },
     opts = {
       notify_on_error = false,
-      format_on_save = function(bufnr)
+      format_after_save = function(bufnr)
         -- Disable "format_on_save lsp_fallback" for languages that don't
         -- have a well standardized coding style. You can add additional
         -- languages here or re-enable it for the disabled ones.
@@ -234,10 +257,14 @@ return {
       end,
       formatters_by_ft = {
         lua = { 'stylua' },
-        javascript = { 'biome' },
-        typescript = { 'biome' },
-        javascriptreact = { 'biome' },
-        typescriptreact = { 'biome' },
+        javascript = { 'biome-check' },
+        typescript = { 'biome-check' },
+        javascriptreact = { 'biome-check' },
+        typescriptreact = { 'biome-check' },
+        vue = { 'biome-check' },
+        css = { 'biome-check' },
+        html = { 'biome-check' },
+        json = { 'biome-check' },
 
         -- Conform can also run multiple formatters sequentially
         -- python = { "isort", "black" },
@@ -265,9 +292,6 @@ return {
           return 'make install_jsregexp'
         end)(),
         dependencies = {
-          -- `friendly-snippets` contains a variety of premade snippets.
-          --    See the README about individual language/framework/plugin snippets:
-          --    https://github.com/rafamadriz/friendly-snippets
           {
             'rafamadriz/friendly-snippets',
             config = function()
