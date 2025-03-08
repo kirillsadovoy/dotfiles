@@ -9,6 +9,9 @@ return {
         disabled_filetypes = { 'neo-tree' },
         symbols = { error = 'E|', warn = 'W|', info = 'I|', hint = 'H|' },
       },
+      sections = {
+        lualine_c = { { 'filename', path = 1 } },
+      },
     }
   end,
 }
