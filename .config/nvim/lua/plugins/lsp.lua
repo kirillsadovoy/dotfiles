@@ -160,6 +160,7 @@ return {
       local servers = {
         ts_ls = {},
         gopls = {},
+        bashls = {},
         cssmodules_ls = {
           capabilities = {
             defenitionProvider = false,
@@ -265,6 +266,7 @@ return {
         css = { 'biome-check' },
         html = { 'biome-check' },
         json = { 'biome-check' },
+        sh = { 'shfmt' },
 
         -- Conform can also run multiple formatters sequentially
         -- python = { "isort", "black" },
