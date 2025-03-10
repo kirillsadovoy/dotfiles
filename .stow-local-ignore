@@ -1,2 +1,8 @@
+.DS_Store
+
+\.git
+\.gitignore
+\.gitmodules
+
 scripts
 Brewfile
