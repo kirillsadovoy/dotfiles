@@ -159,7 +159,42 @@ return {
 
       local servers = {
         ts_ls = {},
-        gopls = {},
+        gopls = {
+          settings = {
+            gofumpt = true,
+            codelenses = {
+              gc_details = false,
+              generate = true,
+              regenerate_cgo = true,
+              run_govulncheck = true,
+              test = true,
+              tidy = true,
+              upgrade_dependency = true,
+              vendor = true,
+            },
+            hints = {
+              assignVariableTypes = true,
+              compositeLiteralFields = true,
+              compositeLiteralTypes = true,
+              constantValues = true,
+              functionTypeParameters = true,
+              parameterNames = true,
+              rangeVariableTypes = true,
+            },
+            analyses = {
+              fieldalignment = true,
+              nilness = true,
+              unusedparams = true,
+              unusedwrite = true,
+              useany = true,
+            },
+            usePlaceholders = true,
+            completeUnimported = true,
+            staticcheck = true,
+            directoryFilters = { '-.git', '-.vscode', '-.idea', '-.vscode-test', '-node_modules' },
+            semanticTokens = true,
+          },
+        },
         bashls = {},
         cssmodules_ls = {
           capabilities = {
@@ -240,7 +275,7 @@ return {
     },
     opts = {
       notify_on_error = false,
-      format_after_save = function(bufnr)
+      format_on_save = function(bufnr)
         -- Disable "format_on_save lsp_fallback" for languages that don't
         -- have a well standardized coding style. You can add additional
         -- languages here or re-enable it for the disabled ones.
@@ -267,6 +302,7 @@ return {
         html = { 'biome-check' },
         json = { 'biome-check' },
         sh = { 'shfmt' },
+        go = { 'goimports', 'gofmt' },
 
         -- Conform can also run multiple formatters sequentially
         -- python = { "isort", "black" },
