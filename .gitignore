@@ -1,5 +1,9 @@
 .DS_Store
 \.config/tmux/plugins
 
+# Karabiner: keep karabiner.json, drop generated backups/assets
+\.config/karabiner/automatic_backups
+\.config/karabiner/assets
+
 # Alfred: keep synced config, but drop machine-local + cache
 alfred/Alfred.alfredpreferences/preferences/local/
