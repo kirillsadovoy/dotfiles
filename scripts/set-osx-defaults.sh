@@ -67,6 +67,20 @@ set_osx_system_defaults() {
 
   # Don't offer new disks for Time Machine backup
   defaults write com.apple.TimeMachine "DoNotOfferNewDisksForBackup" -bool true
+
+  # Trackpad: tap to click
+  defaults write com.apple.driver.AppleBluetoothMultitouch.trackpad Clicking -bool true
+  defaults write com.apple.AppleMultitouchTrackpad Clicking -bool true
+  defaults -currentHost write NSGlobalDomain com.apple.mouse.tapBehavior -int 1
+  defaults write NSGlobalDomain com.apple.mouse.tapBehavior -int 1
+
+  # Trackpad: secondary (right) click in the bottom-right corner.
+  # Mirrors the GUI "Click in bottom right corner" option, which turns off
+  # two-finger right-click (TrackpadRightClick), so we disable that too.
+  defaults write com.apple.driver.AppleBluetoothMultitouch.trackpad TrackpadCornerSecondaryClick -int 2
+  defaults write com.apple.driver.AppleBluetoothMultitouch.trackpad TrackpadRightClick -bool false
+  defaults write com.apple.AppleMultitouchTrackpad TrackpadCornerSecondaryClick -int 2
+  defaults write com.apple.AppleMultitouchTrackpad TrackpadRightClick -bool false
 }
 
 if [ "$(basename "$0")" = "$(basename "${BASH_SOURCE[0]}")" ]; then
