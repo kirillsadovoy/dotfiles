@@ -1,2 +1,5 @@
 .DS_Store
 \.config/tmux/plugins
+
+# Alfred: keep synced config, but drop machine-local + cache
+alfred/Alfred.alfredpreferences/preferences/local/
