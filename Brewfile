@@ -33,4 +33,5 @@ cask "discord"
 cask "google-chrome"
 cask "vlc"
 cask "zoom"
+cask "figma"
 mas "Xcode", id: 497799835
