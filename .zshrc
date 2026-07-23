@@ -26,6 +26,14 @@ bindkey '^[[91;5u' vi-cmd-mode # Ctrl-[
 export NVM_DIR="$HOME/.nvm"
   [ -s "/opt/homebrew/opt/nvm/nvm.sh" ] && \. "/opt/homebrew/opt/nvm/nvm.sh"  # This loads nvm
   [ -s "/opt/homebrew/opt/nvm/etc/bash_completion.d/nvm" ] && \. "/opt/homebrew/opt/nvm/etc/bash_completion.d/nvm"  # This loads nvm bash_completion
+  # nvm's alias resolution isn't extended_glob-safe (the supercharge plugin sets
+  # it globally), so wrap nvm to always run with that option locally disabled.
+  if typeset -f nvm >/dev/null; then
+    functions[_nvm_orig]=$functions[nvm]
+    nvm() { setopt localoptions noextendedglob; _nvm_orig "$@"; }
+  fi
+  # Activate the default Node version at startup.
+  nvm use default --silent >/dev/null 2>&1
 
 # 1Password CLI
 if command -v op >/dev/null 2>&1; then
