@@ -34,4 +34,5 @@ cask "google-chrome"
 cask "vlc"
 cask "zoom"
 cask "figma"
+cask "android-studio"
 mas "Xcode", id: 497799835
