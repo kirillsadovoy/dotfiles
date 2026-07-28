@@ -47,6 +47,19 @@
 				<false/>
 			</dict>
 		</array>
+		<key>753C7E18-2F9C-4FE9-946B-DF5552964170</key>
+		<array>
+			<dict>
+				<key>destinationuid</key>
+				<string>F8346CBF-15C0-4098-81E1-9330C06BBAB2</string>
+				<key>modifiers</key>
+				<integer>0</integer>
+				<key>modifiersubtext</key>
+				<string></string>
+				<key>vitoclose</key>
+				<false/>
+			</dict>
+		</array>
 		<key>B4CBC303-4898-4015-8548-D7149D3A37F7</key>
 		<array>
 			<dict>
@@ -385,6 +398,54 @@
 			<key>version</key>
 			<integer>1</integer>
 		</dict>
+		<dict>
+			<key>config</key>
+			<dict>
+				<key>paths</key>
+				<array>
+					<string>~/Applications/Figma.app</string>
+				</array>
+				<key>toggle</key>
+				<true/>
+			</dict>
+			<key>type</key>
+			<string>alfred.workflow.action.launchfiles</string>
+			<key>uid</key>
+			<string>F8346CBF-15C0-4098-81E1-9330C06BBAB2</string>
+			<key>version</key>
+			<integer>1</integer>
+		</dict>
+		<dict>
+			<key>config</key>
+			<dict>
+				<key>action</key>
+				<integer>0</integer>
+				<key>argument</key>
+				<integer>0</integer>
+				<key>focusedappvariable</key>
+				<false/>
+				<key>focusedappvariablename</key>
+				<string></string>
+				<key>hotkey</key>
+				<integer>3</integer>
+				<key>hotmod</key>
+				<integer>524288</integer>
+				<key>hotstring</key>
+				<string>F</string>
+				<key>leftcursor</key>
+				<false/>
+				<key>modsmode</key>
+				<integer>0</integer>
+				<key>relatedAppsMode</key>
+				<integer>0</integer>
+			</dict>
+			<key>type</key>
+			<string>alfred.workflow.trigger.hotkey</string>
+			<key>uid</key>
+			<string>753C7E18-2F9C-4FE9-946B-DF5552964170</string>
+			<key>version</key>
+			<integer>2</integer>
+		</dict>
 	</array>
 	<key>readme</key>
 	<string></string>
@@ -439,6 +500,13 @@
 			<key>ypos</key>
 			<real>360</real>
 		</dict>
+		<key>753C7E18-2F9C-4FE9-946B-DF5552964170</key>
+		<dict>
+			<key>xpos</key>
+			<real>205</real>
+			<key>ypos</key>
+			<real>700</real>
+		</dict>
 		<key>B4CBC303-4898-4015-8548-D7149D3A37F7</key>
 		<dict>
 			<key>xpos</key>
@@ -473,6 +541,13 @@
 			<real>510</real>
 			<key>ypos</key>
 			<real>250</real>
+		</dict>
+		<key>F8346CBF-15C0-4098-81E1-9330C06BBAB2</key>
+		<dict>
+			<key>xpos</key>
+			<real>515</real>
+			<key>ypos</key>
+			<real>700</real>
 		</dict>
 	</dict>
 	<key>userconfigurationconfig</key>
