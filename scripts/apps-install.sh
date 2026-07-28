@@ -52,7 +52,7 @@ run_brew_bundle() {
     warning "The Brewfile's dependencies are already satisfied."
   else
     info "Satisfying missing dependencies with 'brew bundle install'..."
-    brew bundle install --file="$brewfile" </dev/null || warning "brew bundle finished with errors — check the output above."
+    brew bundle install --file="$brewfile" --verbose </dev/null || warning "brew bundle finished with errors — check the output above."
   fi
 }
 
