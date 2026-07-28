@@ -7,3 +7,6 @@
 
 # Alfred: keep synced config, but drop machine-local + cache
 alfred/Alfred.alfredpreferences/preferences/local/
+
+# oh-my-claudecode runtime state
+.omc/
