@@ -1,42 +1,63 @@
 #!/bin/bash
 
-. utils.sh
-. apps-install.sh
-. set-osx-defaults.sh
+set -euo pipefail
 
-info "System configuration initialized..."
-read -p "Install xcode and homebrew? [y/n] " install_base
+# Get the absolute path of the directory where the script is located
+SCRIPT_DIR="$(cd "$(dirname "${BASH_SOURCE[0]}")" && pwd)"
 
-if [[ "$install_base" == "y" ]]; then
+. "$SCRIPT_DIR/utils.sh"
+. "$SCRIPT_DIR/apps-install.sh"
+. "$SCRIPT_DIR/set-osx-defaults.sh"
+
+section() {
   printf "\n"
   info "===================="
-  info "xcode and homebrew"
+  info "$1"
   info "===================="
+}
 
+confirm() {
+  local answer
+  read -p "$1 [y/n] " answer
+  [[ "$answer" == "y" ]]
+}
+
+info "System configuration initialized..."
+
+if confirm "Install xcode and homebrew?"; then
+  section "xcode and homebrew"
   install_xcode
   install_homebrew
 fi
 
-read -p "Install apps from brewfile? [y/n] " install_brew_bundle
-
-if [[ "$install_brew_bundle" == "y" ]]; then
-  printf "\n"
-  info "===================="
-  info "Apps"
-  info "===================="
-
+if confirm "Install apps from brewfile?"; then
+  section "Apps"
   run_brew_bundle
 fi
 
-read -p "Set OSX system defaults? [y/n] " set_osx_defaults
+if confirm "Symlink dotfiles into \$HOME with stow?"; then
+  section "Dotfiles (stow)"
+  run_stow
+fi
 
-if [[ "$set_osx_defaults" == "y" ]]; then
-  printf "\n"
-  info "===================="
-  info "OSX System Defaults"
-  info "===================="
+if confirm "Install zap (zsh plugin manager)?"; then
+  section "Zap"
+  install_zap
+fi
 
+if confirm "Install Node.js LTS via nvm?"; then
+  section "Node.js"
+  install_node
+fi
+
+if confirm "Set OSX system defaults?"; then
+  section "OSX System Defaults"
   set_osx_system_defaults
 fi
 
-success "System confiiguration finished."
+if confirm "Point Alfred at the synced preferences folder?"; then
+  section "Alfred"
+  set_alfred_syncfolder
+fi
+
+success "System configuration finished."

@@ -1,0 +1,14 @@
+[core]
+	fsmonitor = true
+	untrackedCache = true
+[user]
+	signingkey = ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAIOC+rJFHkFVq26/DmJ2F63v2RLS7tp8FxRg59YlpFo3I
+	name = Kirill Sadovoy
+	email = k.sadovoy@gmail.com
+[commit]
+	gpgsign = true
+[gpg]
+	format = ssh
+[gpg "ssh"]
+	program = "/Applications/1Password.app/Contents/MacOS/op-ssh-sign"
+	allowedSignersFile = ~/.config/git/allowed_signers

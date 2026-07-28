@@ -3,7 +3,10 @@
 \.git
 \.gitignore
 \.gitmodules
+\.claude
+\.omc
 
 scripts
 Brewfile
 alfred
+README.md

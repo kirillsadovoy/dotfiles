@@ -1,5 +1,7 @@
 #!/bin/bash
 
+set -euo pipefail
+
 # Get the absolute path of the directory where the script is located
 SCRIPT_DIR="$(cd "$(dirname "${BASH_SOURCE[0]}")" && pwd)"
 
@@ -26,7 +28,7 @@ set_osx_system_defaults() {
   defaults write com.apple.finder "FXPreferredViewStyle" -string "clmv"
 
   # Keep folders on top in finder
-  defaults write com.apple.finder "_FXSortFoldersFirst" -bool "true" && killall Finder
+  defaults write com.apple.finder "_FXSortFoldersFirst" -bool "true"
 
   # Show hidden files inside the finder
   defaults write com.apple.finder "AppleShowAllFiles" -bool true
@@ -81,6 +83,10 @@ set_osx_system_defaults() {
   defaults write com.apple.driver.AppleBluetoothMultitouch.trackpad TrackpadRightClick -bool false
   defaults write com.apple.AppleMultitouchTrackpad TrackpadCornerSecondaryClick -int 2
   defaults write com.apple.AppleMultitouchTrackpad TrackpadRightClick -bool false
+
+  # Restart affected apps so the settings take effect
+  killall Finder Dock SystemUIServer &>/dev/null || true
+  warning "Some settings (trackpad, key repeat) only apply after logging out and back in."
 }
 
 if [ "$(basename "$0")" = "$(basename "${BASH_SOURCE[0]}")" ]; then
