@@ -102,8 +102,12 @@ install_node() {
 
 set_alfred_syncfolder() {
   info "Pointing Alfred at the synced preferences folder..."
+  # NOTE: this only sticks on Alfred's very first launch. An already-initialized
+  # Alfred resets syncfolder to "" on start, so the workflows won't load. In that
+  # case set it via the GUI instead: Settings -> Advanced -> Syncing ->
+  # "Set preferences folder..." -> ~/Code/dotfiles/alfred (see README).
   defaults write com.runningwithcrayons.Alfred-Preferences syncfolder "$DOTFILES_DIR/alfred"
-  warning "Restart Alfred for the sync folder to take effect."
+  warning "If workflows don't appear, set the sync folder via Alfred's GUI (see README)."
 }
 
 if [ "$(basename "$0")" = "$(basename "${BASH_SOURCE[0]}")" ]; then

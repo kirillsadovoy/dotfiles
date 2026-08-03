@@ -55,6 +55,11 @@ if confirm "Set OSX system defaults?"; then
   set_osx_system_defaults
 fi
 
+if confirm "Install Caps Lock -> Control system remap (LaunchDaemon)?"; then
+  section "Caps Lock -> Control"
+  install_caps_to_control_daemon
+fi
+
 if confirm "Point Alfred at the synced preferences folder?"; then
   section "Alfred"
   set_alfred_syncfolder
