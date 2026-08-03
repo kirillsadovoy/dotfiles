@@ -24,6 +24,37 @@ install_caps_to_control_daemon() {
   sudo launchctl bootstrap system "$dst" || warning "launchctl bootstrap failed — check '$dst'."
 }
 
+# Reset the Dock's pinned apps to a defined list (via dockutil). Edit DOCK_APPS
+# to change what's pinned; missing apps are skipped so it's safe on any machine.
+set_dock() {
+  info "Setting the Dock's pinned apps..."
+  if ! command -v dockutil &>/dev/null; then
+    error "dockutil not installed (comes from the Brewfile — run brew bundle first)"
+    return 1
+  fi
+  local DOCK_APPS=(
+    "/System/Applications/System Settings.app"
+    "/Applications/Google Chrome.app"
+    "/Applications/Microsoft Teams.app"
+    "/Applications/Slack.app"
+    "/Applications/1Password.app"
+    "/Applications/Microsoft Outlook.app"
+    "/Applications/Ghostty.app"
+    "/Applications/Roon.app"
+    "/Applications/Telegram.app"
+  )
+  dockutil --remove all --no-restart &>/dev/null || true
+  local app
+  for app in "${DOCK_APPS[@]}"; do
+    if [ -e "$app" ]; then
+      dockutil --add "$app" --no-restart &>/dev/null || warning "dockutil failed to add $app"
+    else
+      warning "Skipping missing app: $app"
+    fi
+  done
+  killall Dock &>/dev/null || true
+}
+
 set_osx_system_defaults() {
   info "Set OSX system defaults..."
 

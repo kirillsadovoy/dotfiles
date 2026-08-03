@@ -60,6 +60,11 @@ if confirm "Install Caps Lock -> Control system remap (LaunchDaemon)?"; then
   install_caps_to_control_daemon
 fi
 
+if confirm "Set the Dock's pinned apps?"; then
+  section "Dock"
+  set_dock
+fi
+
 if confirm "Point Alfred at the synced preferences folder?"; then
   section "Alfred"
   set_alfred_syncfolder

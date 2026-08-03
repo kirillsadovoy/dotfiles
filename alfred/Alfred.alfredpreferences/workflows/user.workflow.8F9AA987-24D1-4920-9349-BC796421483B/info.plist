@@ -21,6 +21,19 @@
 				<false/>
 			</dict>
 		</array>
+		<key>2F54DF8B-6B2F-4EB8-85A6-1D28236B2F13</key>
+		<array>
+			<dict>
+				<key>destinationuid</key>
+				<string>89643A0C-B540-470F-84EC-423B7742D28E</string>
+				<key>modifiers</key>
+				<integer>0</integer>
+				<key>modifiersubtext</key>
+				<string></string>
+				<key>vitoclose</key>
+				<false/>
+			</dict>
+		</array>
 		<key>64068008-1CAA-4F48-A064-3632B630CDD0</key>
 		<array>
 			<dict>
@@ -403,7 +416,7 @@
 			<dict>
 				<key>paths</key>
 				<array>
-					<string>~/Applications/Figma.app</string>
+					<string>/Applications/Figma.app</string>
 				</array>
 				<key>toggle</key>
 				<true/>
@@ -446,6 +459,54 @@
 			<key>version</key>
 			<integer>2</integer>
 		</dict>
+		<dict>
+			<key>config</key>
+			<dict>
+				<key>paths</key>
+				<array>
+					<string>/Applications/Privileges.app</string>
+				</array>
+				<key>toggle</key>
+				<true/>
+			</dict>
+			<key>type</key>
+			<string>alfred.workflow.action.launchfiles</string>
+			<key>uid</key>
+			<string>89643A0C-B540-470F-84EC-423B7742D28E</string>
+			<key>version</key>
+			<integer>1</integer>
+		</dict>
+		<dict>
+			<key>config</key>
+			<dict>
+				<key>action</key>
+				<integer>0</integer>
+				<key>argument</key>
+				<integer>0</integer>
+				<key>focusedappvariable</key>
+				<false/>
+				<key>focusedappvariablename</key>
+				<string></string>
+				<key>hotkey</key>
+				<integer>35</integer>
+				<key>hotmod</key>
+				<integer>524288</integer>
+				<key>hotstring</key>
+				<string>P</string>
+				<key>leftcursor</key>
+				<false/>
+				<key>modsmode</key>
+				<integer>0</integer>
+				<key>relatedAppsMode</key>
+				<integer>0</integer>
+			</dict>
+			<key>type</key>
+			<string>alfred.workflow.trigger.hotkey</string>
+			<key>uid</key>
+			<string>2F54DF8B-6B2F-4EB8-85A6-1D28236B2F13</string>
+			<key>version</key>
+			<integer>2</integer>
+		</dict>
 	</array>
 	<key>readme</key>
 	<string></string>
@@ -457,6 +518,13 @@
 			<real>200</real>
 			<key>ypos</key>
 			<real>360</real>
+		</dict>
+		<key>2F54DF8B-6B2F-4EB8-85A6-1D28236B2F13</key>
+		<dict>
+			<key>xpos</key>
+			<real>210</real>
+			<key>ypos</key>
+			<real>825</real>
 		</dict>
 		<key>37567C91-F7B4-4FEA-9589-3253734BAD27</key>
 		<dict>
@@ -506,6 +574,13 @@
 			<real>205</real>
 			<key>ypos</key>
 			<real>700</real>
+		</dict>
+		<key>89643A0C-B540-470F-84EC-423B7742D28E</key>
+		<dict>
+			<key>xpos</key>
+			<real>520</real>
+			<key>ypos</key>
+			<real>825</real>
 		</dict>
 		<key>B4CBC303-4898-4015-8548-D7149D3A37F7</key>
 		<dict>
